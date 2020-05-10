@@ -39,4 +39,6 @@ $ helm install --name jenkins -f jenkins/jenkins-values.yaml stable/jenkins --na
 > You may need to `$ helm repo add stable https://kubernetes-charts.storage.googleapis.com`
 
 Login
-`admin/admin` 🚨
+```
+admin/admin 🚨
+``` 
