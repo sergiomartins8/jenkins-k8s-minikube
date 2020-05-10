@@ -1,0 +1,81 @@
+clusterZone: "cluster.local"
+
+master:
+  runAsUser: 1000
+  fsGroup: 1000
+  componentName: "jenkins-master"
+  image: "jenkins/jenkins"
+  tag: "lts"
+  imagePullPolicy: "Always"
+  imagePullSecretName:
+  numExecutors: 0
+  useSecurity: true
+  # login user for Jenkins
+  adminUser: "admin"
+  # login password for Jenkins
+  adminPassword: "admin"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "256Mi"
+    limits:
+      cpu: "2000m"
+      memory: "4096Mi"
+  usePodSecurityContext: true
+  servicePort: 8080
+  targetPort: 8080
+  # Type NodePort for minikube
+  serviceType: NodePort
+  # NodePort for Jenkins Service
+  nodePort: 32000
+  slaveListenerPort: 50000
+  slaveListenerServiceType: "ClusterIP"
+  installPlugins:
+    - kubernetes:1.19.0
+    - workflow-aggregator:2.6
+    - workflow-job:2.35
+    - credentials-binding:1.20
+    - git:3.12.1
+    - greenballs:1.15
+
+agent:
+  enabled: true
+  image: "jenkins/jnlp-slave"
+  tag: "3.27-1"
+  componentName: "jenkins-slave"
+  privileged: false
+  resources:
+    requests:
+      cpu: "512m"
+      memory: "512Mi"
+    limits:
+      cpu: "512m"
+      memory: "512Mi"
+  alwaysPullImage: false
+  podRetention: "Never"
+  # mount docker in agent pod
+  volumes:
+    - type: HostPath
+      hostPath: /var/run/docker.sock
+      mountPath: /var/run/docker.sock
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+  sideContainerName: "jnlp"
+  podName: "default"
+
+persistence:
+  enabled: true
+  existingClaim:
+  storageClass: jenkins-pv
+  annotations: {}
+  accessMode: "ReadWriteOnce"
+  size: "20Gi"
+  volumes:
+  mounts:
+
+rbac:
+  create: true
+
+serviceAccount:
+  create: true
