@@ -23,17 +23,17 @@ kubeconfig: Configured
 
 ## Deploy Jenkins
 
-Create namespace
+Prepare the deployment
 ```shell script
 $ kubectl create -f minikube/jenkins-namespace.yaml
-```
-
-Create persistent volume (folder /data is persistent on minikube)
-```shell script
 $ kubectl create -f minikube/jenkins-volume.yaml
 ```
+
+> Yes, you can `$ kubectl create -f minikube/` that if you want to live on the edge 🔥
 
 Execute helm
 ```shell script
 $ helm install --name jenkins -f jenkins/jenkins-values.yaml stable/jenkins --namespace jenkins
 ```
+
+> You may need to `$ helm repo add stable https://kubernetes-charts.storage.googleapis.com`
