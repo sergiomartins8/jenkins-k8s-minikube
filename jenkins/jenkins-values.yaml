@@ -31,12 +31,18 @@ master:
   slaveListenerPort: 50000
   slaveListenerServiceType: "ClusterIP"
   installPlugins:
-    - kubernetes:1.19.0
+    - kubernetes:1.25.4
     - workflow-aggregator:2.6
-    - workflow-job:2.35
-    - credentials-binding:1.20
-    - git:3.12.1
+    - workflow-job:2.39
+    - credentials-binding:1.23
+    - git:4.2.2
     - greenballs:1.15
+    - blueocean:1.23.1
+    - github:1.30.0
+    - maven-plugin:3.6
+    - bitbucket:1.1.11
+    - htmlpublisher:1.22
+    - testng-plugin:1.15
 
 agent:
   enabled: true

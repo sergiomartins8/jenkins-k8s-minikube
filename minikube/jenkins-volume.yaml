@@ -1,8 +1,3 @@
-# WORKAROUND:
-# 1. minikube ssh
-# 2. sudo chown -R 1000 /mnt/data/
-# 3. exit
-
 apiVersion: v1
 kind: PersistentVolume
 metadata:
