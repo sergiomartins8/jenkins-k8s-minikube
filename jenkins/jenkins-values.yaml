@@ -46,8 +46,8 @@ master:
 
 agent:
   enabled: true
-  image: "jenkins/jnlp-slave"
-  tag: "3.27-1"
+  image: "docker.io/sergiomartins8/jenkins-slave-base"
+  tag: "1.0"
   componentName: "jenkins-slave"
   privileged: false
   resources:

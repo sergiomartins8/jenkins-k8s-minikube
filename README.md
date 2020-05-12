@@ -76,13 +76,13 @@ podTemplate(label: 'mypod', containers: [
             container('git') {
                 sh 'whoami'
                 sh 'hostname -i'
-                sh 'git clone -b master https://github.com/lvthillo/hello-world-war.git'
+                sh 'git clone <<repo>>'
             }
         }
 
         stage('Maven Build') {
             container('maven') {
-                dir('hello-world-war/') {
+                dir('<<repo-name>>/') {
                     sh 'hostname'
                     sh 'hostname -i'
                     sh 'mvn clean install'
