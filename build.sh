@@ -9,6 +9,9 @@ kubectl create -f minikube/jenkins-namespace.yaml
 echo 'Create jenkins volume'
 kubectl create -f minikube/jenkins-volume.yaml
 
+echo 'Create jenkins role bind access controller'
+kubectl create -f minikube/jenkins-rbac.yaml
+
 echo 'Add jenkins user to volume permissions'
 ssh -t -i $(minikube ssh-key) docker@$(minikube ip) "sudo mkdir /mnt/data/ && sudo chown -R 1000 /mnt/data/"
 
