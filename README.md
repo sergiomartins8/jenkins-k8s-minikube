@@ -1,24 +1,22 @@
 # jenkins-k8s-minikube
 
-## Getting started
-
-#### Install helm
+### Install helm
 ```shell script
 $ brew install helm
 ```
 > [Helm v3](https://helm.sh/docs/intro/install/) is strongly recommended ⚠️
 
-#### Getting started
+### Getting started
 ````shell script
 $ ./build.sh
 ````
 
-#### Jenkins login
+### Jenkins login
 ```
 admin/admin 🚨
 ``` 
 
-#### Jenkinsfile example
+### Jenkinsfile example
 
 ````groovy
 podTemplate(label: 'mypod', containers: [
