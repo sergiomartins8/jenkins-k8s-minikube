@@ -1,12 +1,17 @@
 # jenkins-k8s-minikube
 
-## Getting started
+## Prerequisites
 
 #### Install helm
 ```shell script
 $ brew install helm
 ```
 > [Helm v3](https://helm.sh/docs/intro/install/) is strongly recommended ⚠️
+
+#### Helm repo update
+````shell script
+$ helm repo add stable https://kubernetes-charts.storage.googleapis.com
+````
 
 #### Getting started
 ````shell script
