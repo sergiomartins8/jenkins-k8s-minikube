@@ -36,7 +36,7 @@ podTemplate(label: 'jenkins-slave-base-pod', serviceAccount: 'jenkins', containe
   ]
   ) {
     node('jenkins-slave-base-pod') {
-        stage('Check running containers') {
+        stage('Awesome stage') {
             container('base') {
                 sh 'kubectl get po'
                 sh 'helm env'
