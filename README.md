@@ -1,30 +1,27 @@
 # jenkins-k8s-minikube
 
-## Prerequisites
+### Prerequisites
 
-#### Install helm
+##### Install helm
 ```shell script
 $ brew install helm
 ```
 > [Helm v3](https://helm.sh/docs/intro/install/) is strongly recommended ⚠️
 
-#### Helm repo update
+##### Helm repo update
 ````shell script
 $ helm repo add stable https://kubernetes-charts.storage.googleapis.com
 ````
 
-#### Getting started
+### Getting started
+
+##### Execute the following script
 ````shell script
 $ ./build.sh
 ````
+> Jenkins credentials: admin/admin 🚨
 
-#### Jenkins login
-```
-admin/admin 🚨
-``` 
-
-#### Jenkinsfile example
-
+##### Jenkinsfile example
 ````groovy
 podTemplate(label: 'mypod', containers: [
     containerTemplate(name: 'base', image: 'sergiomartins8/jenkins-slave-base:1.0', ttyEnabled: true, command: 'cat')
