@@ -9,20 +9,20 @@ $ brew install helm
 > [Helm v3](https://helm.sh/docs/intro/install/) is strongly recommended ⚠️
 
 ##### Helm repo update
-````shell script
+```shell script
 $ helm repo add stable https://kubernetes-charts.storage.googleapis.com
-````
+```
 
 ### Getting started
 
 ##### Execute the following script
-````shell script
+```shell script
 $ ./build.sh
-````
+```
 > Jenkins credentials: admin/admin 🚨
 
 ##### Jenkinsfile example
-````groovy
+```groovy
 podTemplate(label: 'jenkins-slave-base-pod', serviceAccount: 'jenkins', containers: [
     containerTemplate(
         name: 'base', 
@@ -44,4 +44,4 @@ podTemplate(label: 'jenkins-slave-base-pod', serviceAccount: 'jenkins', containe
         }
     }
 }
-````
+```
