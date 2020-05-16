@@ -19,12 +19,6 @@ metadata:
   namespace: kube-system
   name: service-reader
 rules:
-  - apiGroups: [""] # "" indicates the core API group
-    resources: ["services"]
-    verbs: ["get", "watch", "list"]
-  - apiGroups: [""]
-    resources: ["pods"]
-    verbs: ["get", "watch", "list","create"]
-  - apiGroups: [""]
-    resources: ["pods/portforward"]
-    verbs: ["create"]
+  - apiGroups: ["", "extensions", "apps"]
+    resources: ["deployments", "replicasets", "pods", "services", "pods/portforward", "secrets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]

@@ -4,13 +4,13 @@ echo 'Start minikube'
 minikube --memory 4096 --cpus 2 start --vm-driver=virtualbox
 
 echo 'Create jenkins namespace'
-kubectl create -f minikube/jenkins-namespace.yaml
+kubectl create -f jenkins/jenkins-namespace.yaml
 
 echo 'Create jenkins volume'
-kubectl create -f minikube/jenkins-volume.yaml
+kubectl create -f jenkins/jenkins-volume.yaml
 
 echo 'Create jenkins role bind access controller'
-kubectl create -f minikube/jenkins-rbac.yaml
+kubectl create -f jenkins/jenkins-rbac.yaml
 
 echo 'Create jenkins volume and edit permissions'
 ssh -t -i $(minikube ssh-key) docker@$(minikube ip) "sudo mkdir /mnt/data/"

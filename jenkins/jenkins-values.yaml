@@ -43,6 +43,7 @@ master:
     - bitbucket:latest
     - htmlpublisher:latest
     - testng-plugin:latest
+    - pipeline-utility-steps:latest
 
 agent:
   enabled: true
