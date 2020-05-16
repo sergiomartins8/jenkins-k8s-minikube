@@ -12,8 +12,9 @@ kubectl create -f minikube/jenkins-volume.yaml
 echo 'Create jenkins role bind access controller'
 kubectl create -f minikube/jenkins-rbac.yaml
 
-echo 'Add jenkins user to volume permissions'
-ssh -t -i $(minikube ssh-key) docker@$(minikube ip) "sudo mkdir /mnt/data/ && sudo chown -R 1000 /mnt/data/"
+echo 'Create jenkins volume and edit permissions'
+ssh -t -i $(minikube ssh-key) docker@$(minikube ip) "sudo mkdir /mnt/data/"
+ssh -t -i $(minikube ssh-key) docker@$(minikube ip) "sudo chown -R 1000 /mnt/data/"
 
 echo 'Install jenkins chart'
 helm upgrade --install jenkins -f jenkins/jenkins-values.yaml stable/jenkins --namespace jenkins
