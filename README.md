@@ -2,6 +2,16 @@
 
 ### Prerequisites
 
+#### Install kubectl
+```shell script
+$ brew install kubectl
+```
+
+#### Install virtualbox
+```shell script
+$ brew cask install virtualbox
+```
+
 ##### Install helm
 ```shell script
 $ brew install helm
@@ -45,3 +55,5 @@ podTemplate(label: 'jenkins-slave-base-pod', serviceAccount: 'jenkins', containe
     }
 }
 ```
+
+Checkout the complete article [here](https://medium.com/@sergiomartins8/highly-scalable-jenkins-on-minikube-8cc289a31850).
