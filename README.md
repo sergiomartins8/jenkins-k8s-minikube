@@ -2,12 +2,12 @@
 
 ### Prerequisites
 
-#### Install kubectl
+##### Install kubectl
 ```shell script
 $ brew install kubectl
 ```
 
-#### Install virtualbox
+##### Install virtualbox
 ```shell script
 $ brew cask install virtualbox
 ```
